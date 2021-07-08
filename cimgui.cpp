@@ -4790,10 +4790,10 @@ CIMGUI_API void igDebugRenderViewportThumbnail(ImDrawList* draw_list,ImGuiViewpo
 {
     return ImGui::DebugRenderViewportThumbnail(draw_list,viewport,bb);
 }
-CIMGUI_API const ImFontBuilderIO* igImFontAtlasGetBuilderForStbTruetype()
+/*CIMGUI_API const ImFontBuilderIO* igImFontAtlasGetBuilderForStbTruetype()
 {
     return ImFontAtlasGetBuilderForStbTruetype();
-}
+}*/
 CIMGUI_API void igImFontAtlasBuildInit(ImFontAtlas* atlas)
 {
     return ImFontAtlasBuildInit(atlas);
