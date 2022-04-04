@@ -3672,9 +3672,9 @@ CIMGUI_API void igCalcWindowNextAutoFitSize(ImVec2 *pOut,ImGuiWindow* window)
 {
     *pOut = ImGui::CalcWindowNextAutoFitSize(window);
 }
-CIMGUI_API bool igIsWindowChildOf(ImGuiWindow* window,ImGuiWindow* potential_parent,bool popup_hierarchy)
+CIMGUI_API bool igIsWindowChildOf(ImGuiWindow* window,ImGuiWindow* potential_parent,bool popup_hierarchy,bool dock_hierarchy)
 {
-    return ImGui::IsWindowChildOf(window,potential_parent,popup_hierarchy);
+    return ImGui::IsWindowChildOf(window,potential_parent,popup_hierarchy,dock_hierarchy);
 }
 CIMGUI_API bool igIsWindowWithinBeginStackOf(ImGuiWindow* window,ImGuiWindow* potential_parent)
 {
@@ -4044,13 +4044,9 @@ CIMGUI_API void igBeginTooltipEx(ImGuiTooltipFlags tooltip_flags,ImGuiWindowFlag
 {
     return ImGui::BeginTooltipEx(tooltip_flags,extra_window_flags);
 }
-CIMGUI_API void igGetPopupAllowedExtentRect(ImRect *pOut,ImGuiWindow* window)
+CIMGUI_API void igGetPopupAllowedExtentRect(ImGuiWindow* window)
 {
-    *pOut = ImGui::GetPopupAllowedExtentRect(window);
-}
-CIMGUI_API void igGetPopupAllowedExtentRect(ImRect *pOut,ImGuiWindow* window)
-{
-    *pOut = ImGui::GetPopupAllowedExtentRect(window);
+    ImGui::GetPopupAllowedExtentRect(window);
 }
 CIMGUI_API ImGuiWindow* igGetTopMostPopupModal()
 {
@@ -4448,9 +4444,9 @@ CIMGUI_API ImGuiTableSettings* igTableGetBoundSettings(ImGuiTable* table)
 {
     return ImGui::TableGetBoundSettings(table);
 }
-CIMGUI_API void igTableSettingsInstallHandler(ImGuiContext* context)
+CIMGUI_API void igTableSettingsAddSettingsHandler()
 {
-    return ImGui::TableSettingsInstallHandler(context);
+    return ImGui::TableSettingsAddSettingsHandler();
 }
 CIMGUI_API ImGuiTableSettings* igTableSettingsCreate(ImGuiID id,int columns_count)
 {
@@ -4564,9 +4560,9 @@ CIMGUI_API void igRenderCheckMark(ImDrawList* draw_list,ImVec2 pos,ImU32 col,flo
 {
     return ImGui::RenderCheckMark(draw_list,pos,col,sz);
 }
-CIMGUI_API void igRenderMouseCursor(ImDrawList* draw_list,ImVec2 pos,float scale,ImGuiMouseCursor mouse_cursor,ImU32 col_fill,ImU32 col_border,ImU32 col_shadow)
+CIMGUI_API void igRenderMouseCursor(ImVec2 base_pos, float base_scale, ImGuiMouseCursor mouse_cursor, ImU32 col_fill, ImU32 col_border, ImU32 col_shadow)
 {
-    return ImGui::RenderMouseCursor(draw_list,pos,scale,mouse_cursor,col_fill,col_border,col_shadow);
+    return ImGui::RenderMouseCursor(base_pos,base_scale,mouse_cursor,col_fill,col_border,col_shadow);
 }
 CIMGUI_API void igRenderArrowPointingAt(ImDrawList* draw_list,ImVec2 pos,ImVec2 half_sz,ImGuiDir direction,ImU32 col)
 {
